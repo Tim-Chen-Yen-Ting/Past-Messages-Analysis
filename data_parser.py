@@ -1,8 +1,5 @@
 import json
-import re
 from pathlib import Path
-
-PLATFORM = "facebook"
 
 
 def fix_encoding(text: str) -> str:
@@ -29,7 +26,7 @@ def detect_content_type(msg: dict) -> str:
     return "text"
 
 
-def parse_thread(thread_dir: Path, your_name: str) -> tuple[dict, list[dict], list[dict]]:
+def parse_thread(thread_dir: Path, your_name: str, platform: str = "facebook") -> tuple[dict, list[dict], list[dict]]:
     """
     Parse all message_N.json files in a thread folder.
     Returns (thread_row, message_rows, reaction_rows).
@@ -58,7 +55,7 @@ def parse_thread(thread_dir: Path, your_name: str) -> tuple[dict, list[dict], li
 
     thread_row = {
         "thread_id":          thread_id,
-        "platform":           PLATFORM,
+        "platform":           platform,
         "thread_name":        thread_name,
         "is_group":           int(is_group),
         "participant_count":  len(participants),
@@ -79,7 +76,7 @@ def parse_thread(thread_dir: Path, your_name: str) -> tuple[dict, list[dict], li
         chars = len(content) if content else 0
 
         message_rows.append({
-            "platform":     PLATFORM,
+            "platform":     platform,
             "thread_id":    thread_id,
             "timestamp_ms": msg["timestamp_ms"],
             "sender":       sender,
