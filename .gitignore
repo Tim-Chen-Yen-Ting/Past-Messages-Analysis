@@ -4,4 +4,7 @@ data/
 check.py
 *.txt
 contacts_data.py
+analysis_data.py
+stemeKit.py
+blocKit.py
 __pycache__/
