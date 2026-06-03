@@ -30,6 +30,13 @@ CREATE TABLE IF NOT EXISTS reactions (
     FOREIGN KEY (message_id) REFERENCES messages(id)
 );
 
+CREATE TABLE IF NOT EXISTS contacts (
+    id              INTEGER PRIMARY KEY AUTOINCREMENT,
+    canonical_name  TEXT NOT NULL,       -- the "real" name you know them by
+    platform        TEXT NOT NULL,       -- facebook / instagram / you
+    platform_name   TEXT NOT NULL UNIQUE -- raw sender name as it appears in exports
+);
+
 CREATE INDEX IF NOT EXISTS idx_messages_timestamp ON messages(timestamp_ms);
 CREATE INDEX IF NOT EXISTS idx_messages_sender    ON messages(sender);
 CREATE INDEX IF NOT EXISTS idx_messages_thread    ON messages(thread_id);

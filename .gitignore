@@ -1,3 +1,7 @@
 data/
 *.db
 .vscode/
+check.py
+*.txt
+contacts_data.py
+__pycache__/

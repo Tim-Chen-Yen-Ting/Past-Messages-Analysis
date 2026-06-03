@@ -49,11 +49,11 @@ FROM threads ORDER BY your_message_count DESC LIMIT 20;
 
 -- Your messages only, by month
 SELECT strftime('%Y-%m', timestamp_ms/1000, 'unixepoch') AS month, COUNT(*)
-FROM messages WHERE sender = 'Tim Chen' GROUP BY month;
+FROM messages WHERE sender = 'Name' GROUP BY month;
 
 -- Media you sent over time
 SELECT strftime('%Y', timestamp_ms/1000, 'unixepoch') AS year, content_type, COUNT(*)
-FROM messages WHERE sender = 'Tim Chen' AND content_type != 'text'
+FROM messages WHERE sender = 'Name' AND content_type != 'text'
 GROUP BY year, content_type;
 ```
 
