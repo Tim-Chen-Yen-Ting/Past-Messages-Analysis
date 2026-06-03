@@ -17,6 +17,7 @@ CREATE TABLE IF NOT EXISTS messages (
     sender          TEXT NOT NULL,
     content         TEXT,
     content_type    TEXT NOT NULL DEFAULT 'text',  -- text, photo, video, audio, sticker, call, share
+    call_duration   INTEGER,                        -- seconds, only set for content_type='call'
     word_count      INTEGER DEFAULT 0,
     char_count      INTEGER DEFAULT 0,
     FOREIGN KEY (thread_id) REFERENCES threads(thread_id)

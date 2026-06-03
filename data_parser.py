@@ -21,7 +21,7 @@ def detect_content_type(msg: dict) -> str:
         return "sticker"
     if "share" in msg:
         return "share"
-    if msg.get("type") == "Call":
+    if msg.get("type") == "Call" or "call_duration" in msg:
         return "call"
     return "text"
 
@@ -76,14 +76,15 @@ def parse_thread(thread_dir: Path, your_name: str, platform: str = "facebook") -
         chars = len(content) if content else 0
 
         message_rows.append({
-            "platform":     platform,
-            "thread_id":    thread_id,
-            "timestamp_ms": msg["timestamp_ms"],
-            "sender":       sender,
-            "content":      content,
-            "content_type": content_type,
-            "word_count":   words,
-            "char_count":   chars,
+            "platform":      platform,
+            "thread_id":     thread_id,
+            "timestamp_ms":  msg["timestamp_ms"],
+            "sender":        sender,
+            "content":       content,
+            "content_type":  content_type,
+            "call_duration": msg.get("call_duration"),
+            "word_count":    words,
+            "char_count":    chars,
         })
 
         if "reactions" in msg:

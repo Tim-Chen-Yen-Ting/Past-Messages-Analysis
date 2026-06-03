@@ -36,9 +36,9 @@ def insert_messages(conn: sqlite3.Connection, rows: list[dict]) -> list[int]:
     for row in rows:
         cur = conn.execute("""
             INSERT INTO messages (platform, thread_id, timestamp_ms, sender,
-                                  content, content_type, word_count, char_count)
+                                  content, content_type, call_duration, word_count, char_count)
             VALUES (:platform, :thread_id, :timestamp_ms, :sender,
-                    :content, :content_type, :word_count, :char_count)
+                    :content, :content_type, :call_duration, :word_count, :char_count)
         """, row)
         ids.append(cur.lastrowid)
     return ids
