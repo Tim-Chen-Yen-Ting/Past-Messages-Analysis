@@ -8,3 +8,4 @@ analysis_data.py
 stemeKit.py
 blocKit.py
 __pycache__/
+*.pdf
