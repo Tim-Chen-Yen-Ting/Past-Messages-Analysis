@@ -83,3 +83,7 @@ Notebook-only dependencies beyond the standard library: `pandas`, `numpy`, `matp
 - [x] AI analysis layer: statistics-grounded personality/style evolution narration via `litellm` + `instructor` (Section 8)
 - [x] Personality evolution report across time periods (Sections 4a/5a/5b + 8)
 - [ ] Anchored close-reading (Section 9) is opt-in only — consider a lighter-weight local/offline model path to avoid sending raw message content externally
+
+---
+
+Built by [Yen-Ting (Tim) Chen](https://tim-chen-yen-ting.github.io/) · [Portfolio](https://tim-chen-yen-ting.github.io/)
